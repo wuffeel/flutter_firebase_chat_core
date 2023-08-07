@@ -345,6 +345,12 @@ class FirebaseChatCore {
         id: '',
         partialCustom: partialMessage,
       );
+    } else if (partialMessage is types.PartialAudio) {
+      message = types.AudioMessage.fromPartial(
+        author: types.User(id: firebaseUser!.uid),
+        id: '',
+        partialAudio: partialMessage,
+      );
     } else if (partialMessage is types.PartialFile) {
       message = types.FileMessage.fromPartial(
         author: types.User(id: firebaseUser!.uid),
